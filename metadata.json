@@ -1,0 +1,5 @@
+{
+  "name": "DriveEase - Smart Car Rental System",
+  "description": "An academic frontend prototype for a car rental system designed for Design Engineering evaluation, featuring user and owner flows, booking management, and condition reporting.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,335 @@
+import { Car, AddOn, NearbyService } from '../types';
+
+export const CARS: Car[] = [
+  // --- SUVs ---
+  {
+    id: 's1',
+    name: 'Tata Nexon EV',
+    type: 'SUV',
+    pricePerDay: 2500,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Electric',
+    owner: 'Amit Sharma',
+    rating: 4.8
+  },
+  {
+    id: 's2',
+    name: 'Mahindra XUV700',
+    type: 'SUV',
+    pricePerDay: 3500,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200',
+    seats: 7,
+    transmission: 'Automatic',
+    fuel: 'Diesel',
+    owner: 'Vikram Singh',
+    rating: 4.9
+  },
+  {
+    id: 's3',
+    name: 'Hyundai Creta',
+    type: 'SUV',
+    pricePerDay: 2200,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1567818735868-e71b99932e29?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Priya Patel',
+    rating: 4.5
+  },
+  {
+    id: 's4',
+    name: 'Kia Seltos',
+    type: 'SUV',
+    pricePerDay: 2300,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1517672651691-24622a91b550?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Rahul Verma',
+    rating: 4.7
+  },
+  {
+    id: 's5',
+    name: 'Toyota Fortuner',
+    type: 'SUV',
+    pricePerDay: 5500,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=1200',
+    seats: 7,
+    transmission: 'Automatic',
+    fuel: 'Diesel',
+    owner: 'Karan Mehra',
+    rating: 4.8
+  },
+  {
+    id: 's6',
+    name: 'Jeep Compass',
+    type: 'SUV',
+    pricePerDay: 4000,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Diesel',
+    owner: 'Sanjay Dutt',
+    rating: 4.6
+  },
+  {
+    id: 's7',
+    name: 'MG Hector',
+    type: 'SUV',
+    pricePerDay: 2800,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Nitin Gadkari',
+    rating: 4.4
+  },
+  {
+    id: 's8',
+    name: 'Maruti Brezza',
+    type: 'SUV',
+    pricePerDay: 1800,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Ajay Devgn',
+    rating: 4.3
+  },
+
+  // --- Sedans ---
+  {
+    id: 'd1',
+    name: 'Honda City',
+    type: 'Sedan',
+    pricePerDay: 2100,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Suresh Varma',
+    rating: 4.6
+  },
+  {
+    id: 'd2',
+    name: 'Hyundai Verna',
+    type: 'Sedan',
+    pricePerDay: 2000,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Ankit Gupta',
+    rating: 4.7
+  },
+  {
+    id: 'd3',
+    name: 'Skoda Slavia',
+    type: 'Sedan',
+    pricePerDay: 2400,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Rohan Joshi',
+    rating: 4.8
+  },
+  {
+    id: 'd4',
+    name: 'Volkswagen Virtus',
+    type: 'Sedan',
+    pricePerDay: 2500,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Sameer Khan',
+    rating: 4.9
+  },
+  {
+    id: 'd5',
+    name: 'Maruti Ciaz',
+    type: 'Sedan',
+    pricePerDay: 1700,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Diesel',
+    owner: 'Deepak Raj',
+    rating: 4.2
+  },
+  {
+    id: 'd6',
+    name: 'BMW 3 Series',
+    type: 'Sedan',
+    pricePerDay: 12000,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Aryan Malhotra',
+    rating: 5.0
+  },
+  {
+    id: 'd7',
+    name: 'Toyota Camry',
+    type: 'Sedan',
+    pricePerDay: 8000,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Electric',
+    owner: 'Manish Pandey',
+    rating: 4.9
+  },
+  {
+    id: 'd8',
+    name: 'Honda Amaze',
+    type: 'Sedan',
+    pricePerDay: 1500,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Gopal Soni',
+    rating: 4.1
+  },
+
+  // --- Hatchbacks ---
+  {
+    id: 'h1',
+    name: 'Maruti Suzuki Swift',
+    type: 'Hatchback',
+    pricePerDay: 1200,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1619682817481-e994891cd1f5?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Rajesh Kumar',
+    rating: 4.2
+  },
+  {
+    id: 'h2',
+    name: 'Hyundai i20',
+    type: 'Hatchback',
+    pricePerDay: 1400,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1566274360936-692e1600824e?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Pooja Hegde',
+    rating: 4.5
+  },
+  {
+    id: 'h3',
+    name: 'Tata Altroz',
+    type: 'Hatchback',
+    pricePerDay: 1300,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Sumit Vyas',
+    rating: 4.6
+  },
+  {
+    id: 'h4',
+    name: 'Volkswagen Polo',
+    type: 'Hatchback',
+    pricePerDay: 1600,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Zaid Darbar',
+    rating: 4.7
+  },
+  {
+    id: 'h5',
+    name: 'Maruti Baleno',
+    type: 'Hatchback',
+    pricePerDay: 1350,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Megha Gupta',
+    rating: 4.4
+  },
+  {
+    id: 'h6',
+    name: 'Renault Kwid',
+    type: 'Hatchback',
+    pricePerDay: 900,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1532581133580-b184e7978aa9?auto=format&fit=crop&q=80&w=1200',
+    seats: 4,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Amit Bhadana',
+    rating: 3.9
+  },
+  {
+    id: 'h7',
+    name: 'Maruti Alto K10',
+    type: 'Hatchback',
+    pricePerDay: 800,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?auto=format&fit=crop&q=80&w=1200',
+    seats: 4,
+    transmission: 'Manual',
+    fuel: 'Petrol',
+    owner: 'Sandeep Maheshwari',
+    rating: 4.0
+  },
+  {
+    id: 'h8',
+    name: 'Toyota Glanza',
+    type: 'Hatchback',
+    pricePerDay: 1400,
+    availability: 'Available',
+    image: 'https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?auto=format&fit=crop&q=80&w=1200',
+    seats: 5,
+    transmission: 'Automatic',
+    fuel: 'Petrol',
+    owner: 'Manoj Bajpayee',
+    rating: 4.5
+  }
+];
+
+export const ADD_ONS: AddOn[] = [
+  { id: 'a1', name: 'Phone Holder', price: 50, icon: '📱' },
+  { id: 'a2', name: 'Fast Charger', price: 100, icon: '⚡' },
+  { id: 'a3', name: 'Portable Cooler', price: 200, icon: '❄️' },
+  { id: 'a4', name: 'Bluetooth Speaker', price: 150, icon: '🔊' }
+];
+
+export const NEARBY_SERVICES: NearbyService[] = [
+  { id: 's1', name: 'HP Petrol Pump', type: 'Petrol', distance: '1.2 km' },
+  { id: 's2', name: 'Tata Power EV Station', type: 'EV', distance: '0.8 km' },
+  { id: 's3', name: 'Shine Car Wash', type: 'Wash', distance: '2.5 km' },
+  { id: 's4', name: 'Starbucks Cafe', type: 'Cafe', distance: '1.5 km' }
+];
