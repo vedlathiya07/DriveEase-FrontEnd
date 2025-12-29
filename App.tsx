@@ -94,7 +94,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-slate-800 text-center text-xs">
-      <p>© 2024 DriveEase Academic Prototype. All rights reserved.</p>
+      <p>© 2025 DriveEase. All rights reserved.</p>
     </div>
   </footer>
 );
@@ -107,9 +107,6 @@ const HomePage = () => (
     <section className="bg-gradient-to-br from-blue-700 to-blue-500 py-24 px-4 text-center text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
       <div className="max-w-4xl mx-auto relative z-10">
-        <span className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-white/30">
-          GTU Design Engineering Prototype
-        </span>
         <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">Your Smart Journey <br /> Starts Here</h1>
         <p className="text-xl md:text-2xl mb-12 text-blue-50 opacity-90 leading-relaxed">
           The only car rental platform that combines IoT Smart Locks,
